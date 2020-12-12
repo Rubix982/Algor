@@ -39,3 +39,6 @@ auto-save-list
 .project
 .settings
 .pydevproject
+
+# secrets
+.env
