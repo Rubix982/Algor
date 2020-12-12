@@ -21,7 +21,7 @@ DATABASES = {
 # environment variable and set it with:
 # export SECRET_KEY="phil-dunphy98!-bananas12"
 # https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/#secret-key
-# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # WSGI SETTINGS
 # https://docs.djangoproject.com/en/1.10/ref/settings/#wsgi-application
@@ -36,9 +36,9 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # DJANGO-COMPRESSOR SETTINGS
-STATICFILES_FINDERS = STATICFILES_FINDERS + (
+STATICFILES_FINDERS = STATICFILES_FINDERS + [
     'compressor.finders.CompressorFinder',
-)
+]
 
 try:
     from local_settings import * # noqa
