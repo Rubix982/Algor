@@ -36,9 +36,9 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # DJANGO-COMPRESSOR SETTINGS
-STATICFILES_FINDERS = STATICFILES_FINDERS + (
-    'compressor.finders.CompressorFinder',
-)
+# STATICFILES_FINDERS = STATICFILES_FINDERS + (
+#     'compressor.finders.CompressorFinder',
+# )
 
 try:
     from local_settings import * # noqa
