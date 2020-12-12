@@ -98,7 +98,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # https://docs.djangoproject.com/en/2.0/ref/settings/#static-root
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'public/')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 # URL prefix for static files.
 # https://docs.djangoproject.com/en/2.0/ref/settings/#static-url
@@ -145,6 +145,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 # LOGGING
