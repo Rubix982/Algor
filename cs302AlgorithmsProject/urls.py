@@ -16,6 +16,7 @@ sitemaps = {
 }
 
 urlpatterns = [
+
     url(r'', include('base.urls')),
 
     # Admin
