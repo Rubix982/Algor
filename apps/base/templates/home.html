@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/css/index.css' %}">
+
+
+<div class='container'>
+
+    <div class="jumbotron">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-strong flex-center">
+                <div class="container">
+                    <div class="white-text text-center wow fadeInUp">
+                        <h2>Welcome To CS302 - Analyis And Design Of Algorithms!</h2>
+                        <h5>This is just a semester project - code will be released after 1st January</h5>
+                        <br>
+                        <p>To get started, select the respective algoritm from the list below, along with the dataset to
+                            use it along with: </p>
+                        <p>Please note that some datasets may work with more than one algorithm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='col-md rounded-box'>
+            <div class='container padding-class'>
+                <h1 class='white-color-text'>List of Algorithms</h1>
+                <hr class='hr-styling' />
+                <ol class="gradient-list">
+                    {% for list_item in algorithms %}
+                    <li>{{ list_item }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+        <div class='col-md rounded-box'>
+            <div class='container padding-class'>
+                <h1 class='white-color-text'>Datasets</h1>
+                <hr class="hr-styling" />
+                <ol class="gradient-list">
+                    {% for list_item in algorithms %}
+                    <li>{{ list_item }} - Dataset</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row"> -->
+<button class='button-styling'>
+    <p>Submit</p>
+</button>
+<!-- </div>  -->
+
+{% endblock %}

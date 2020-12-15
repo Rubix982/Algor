@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1><b>Report view</b></h1>
+
+<h2> This is the report page! </h2>
+
+<p> The following is the document generated for the project. It may or may not be the finalized report. </p>
+
+{% load static %}
+<div class='d-flex p-2'>
+    <iframe src="{% static 'pdf/report.pdf' %}" style="width:100vw; height:100vh;" frameborder="0"></iframe>
+</div>
+{% endblock %}
