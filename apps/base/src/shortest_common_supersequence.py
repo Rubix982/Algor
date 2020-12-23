@@ -1,55 +1,18 @@
-# Python program to find length
-# of the shortest supersequence
+def superSeqNaive(X: str, Y: str,
+                  m: int, n: int) -> int:
+    '''
+    A Naive recursive python program to find
+    length of the shortest supersequence
 
-# Function to find length of the
-# shortest supersequence of X and Y.
+    Parameters:
+    - @param: X - The first sequence
+    - @param: Y - The second sequence
+    - @param: m - The length of the first sequence
+    - @param: n - The length of the second sequence
 
-
-def shortestSuperSequence(X, Y):
-    m = len(X)
-    n = len(Y)
-    l = lcs(X, Y, m, n)
-
-    # Result is sum of input string
-    # lengths - length of lcs
-    return (m + n - l)
-
-# Returns length of LCS for
-# X[0..m - 1], Y[0..n - 1]
-
-
-def lcs(X, Y, m, n):
-    L = [[0] * (n + 2) for i in
-         range(m + 2)]
-
-    # Following steps build L[m + 1][n + 1]
-    # in bottom up fashion. Note that L[i][j]
-    # contains length of LCS of X[0..i - 1]
-    # and Y[0..j - 1]
-    for i in range(m + 1):
-
-        for j in range(n + 1):
-
-            if (i == 0 or j == 0):
-                L[i][j] = 0
-
-            elif (X[i - 1] == Y[j - 1]):
-                L[i][j] = L[i - 1][j - 1] + 1
-
-            else:
-                L[i][j] = max(L[i - 1][j],
-                              L[i][j - 1])
-
-    # L[m][n] contains length of
-    # LCS for X[0..n - 1] and Y[0..m - 1]
-    return L[m][n]
-
-
-# A Naive recursive python program to find
-# length of the shortest supersequence
-
-
-def superSeqNaive(X, Y, m, n):
+    Returns:
+    - Return the super sequence length found
+    '''
     if (not m):
         return n
     if (not n):
@@ -62,14 +25,24 @@ def superSeqNaive(X, Y, m, n):
                    superSeqNaive(X, Y, m, n - 1))
 
 
-# A dynamic programming based python program
-# to find length of the shortest supersequence
+def superSeqDynamic(X: str, Y: str,
+                    m: int, n: int) -> int:
+    '''
+    A Dynamic Approach to the  recursive python 
+    program to find length of the shortest supersequence
 
-# Returns length of the shortest supersequence of X and Y
+    Parameters:
+    - @param: X - The first sequence
+    - @param: Y - The second sequence
+    - @param: m - The length of the first sequence
+    - @param: n - The length of the second sequence
 
+    Returns:
+    - Return the super sequence length found
 
-def superSeq(X, Y, m, n):
-    dp = [[0] * (n + 2) for i in range(m + 2)]
+    '''
+
+    dp_matrix = [[0] * (n + 2) for i in range(m + 2)]
 
     # Fill table in bottom up manner
     for i in range(m + 1):
@@ -77,17 +50,43 @@ def superSeq(X, Y, m, n):
 
             # Below steps follow above recurrence
             if (not i):
-                dp[i][j] = j
+                dp_matrix[i][j] = j
             elif (not j):
-                dp[i][j] = i
+                dp_matrix[i][j] = i
 
             elif (X[i - 1] == Y[j - 1]):
-                dp[i][j] = 1 + dp[i - 1][j - 1]
+                dp_matrix[i][j] = 1 + dp_matrix[i - 1][j - 1]
 
             else:
-                dp[i][j] = 1 + min(dp[i - 1][j],
-                                   dp[i][j - 1])
+                dp_matrix[i][j] = 1 + min(dp_matrix[i - 1][j],
+                                          dp_matrix[i][j - 1])
 
-    return dp[m][n]
+    return dp_matrix[m][n]
 
-# See this link for more of a reference https://www.geeksforgeeks.org/shortest-common-supersequence/
+
+def superSeqSelection(X: str, Y: str,
+                      option_selection: int = 2) -> None:
+    '''
+    Select the needed countSelection. 1 for the Memoized version, 2 for the
+    BottomUp version
+
+    Parameters:
+    - @param: X - The first sequence
+    - @param: Y - The second sequence
+    - @param: option_select - Value can be either 1 or 2
+
+    Returns:
+    - None
+    '''
+
+    print(
+        f'The shortest_common_subsequence method has been selected. Passed in is {option_selection}')
+
+    # See here for more details https://www.geeksforgeeks.org/python-program-for-coin-change/
+    if option_selection == 1:
+        result = superSeqNaive(X, Y, len(X), len(Y))
+        print(f'The result to the answer is {result}')
+
+    if option_selection == 2:
+        result = superSeqDynamic(X, Y, len(X), len(Y))
+        print(f"The result to the answer is {result}")

@@ -28,6 +28,10 @@ def longestCommonSubsequenceDynamic(X, Y):
     Parameters:
     - @param: X - The first sequence, denoted by 'X'
     - @param: Y - The second sequence, denoted by 'Y'
+
+    Returns:
+    - L[m][n] contains length of LCS for X[0..n - 1] 
+    and Y[0..m - 1]
     '''
 
     # find the length of the strings
