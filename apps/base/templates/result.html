@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/css/index.css' %}">
+
+<div class="row">
+    <div class="col-md result-box">
+        Hi!
+        <img class='render-image-for-code' src="{% static 'base/img/coin_change_making.png' %}" />
+    </div>
+    <div class="col-md result-box">
+        <button onclick="here_is_a_button()">
+            There!
+        </button>
+    </div>
+</div>
+
+{% endblock %}
