@@ -1,46 +1,87 @@
-# A Naive recursive Python implementation of LCS problem
+def longestCommonSubsequenceNaive(X: str, Y: str,
+                                  X_length: int, Y_length: int):
+    '''
+    A Naive recursive Python implementation of LCS problem
 
-def lcsNaive(X, Y, m, n):
+    Parameters:
+    - @param: X - The first sequence, denoted by 'X'
+    - @param: Y - The second sequence, denoted by 'Y'
+    - @param: X_length - The length of the first sequence
+    - @param: Y_length - The length of the second sequence
+    '''
 
-    if m == 0 or n == 0:
+    if X_length == 0:
         return 0
-    elif X[m-1] == Y[n-1]:
-        return 1 + lcsNaive(X, Y, m-1, n-1)
+    elif Y_length == 0:
+        return 0
+    elif X[X_length-1] == Y[Y_length-1]:
+        return 1 + longestCommonSubsequenceNaive(X, Y, X_length-1, Y_length-1)
     else:
-        return max(lcsNaive(X, Y, m, n-1), lcsNaive(X, Y, m-1, n))
+        return max(longestCommonSubsequenceNaive(X, Y, X_length, Y_length-1),
+                   longestCommonSubsequenceNaive(X, Y, X_length-1, Y_length))
 
-# Dynamic Programming implementation of LCS problem
 
+def longestCommonSubsequenceDynamic(X, Y):
+    '''
+    Dynamic Programming implementation of LCS problem
 
-def lcsDynamic(X, Y):
+    Parameters:
+    - @param: X - The first sequence, denoted by 'X'
+    - @param: Y - The second sequence, denoted by 'Y'
+    '''
+
     # find the length of the strings
-    m = len(X)
-    n = len(Y)
+    X_length = len(X)
+    Y_length = len(Y)
 
     # declaring the array for storing the dp values
-    L = [[None]*(n + 1) for i in range(m + 1)]
+    levenshtein_matrix = [[None]*(Y_length + 1) for i
+                          in range(X_length + 1)]
 
-    """Following steps build L[m + 1][n + 1] in bottom up fashion 
-    Note: L[i][j] contains length of LCS of X[0..i-1] 
-    and Y[0..j-1]"""
-    for i in range(m + 1):
-        for j in range(n + 1):
-            if i == 0 or j == 0:
-                L[i][j] = 0
-            elif X[i-1] == Y[j-1]:
-                L[i][j] = L[i-1][j-1]+1
+    '''
+    Following steps build levenshtein_matrix[m + 1][n + 1] in bottom up fashion 
+    Note: levenshtein_matrix[i][j] contains length of levenshteinCS_matrix of X[0..i-1] 
+    and Y[0..j-1]
+    '''
+    for ith_row in range(X_length + 1):
+        for jth_col in range(Y_length + 1):
+            if ith_row == 0 or jth_col == 0:
+                levenshtein_matrix[ith_row][jth_col] = 0
+            elif X[ith_row-1] == Y[jth_col-1]:
+                levenshtein_matrix[ith_row][jth_col] = levenshtein_matrix[ith_row-1][jth_col-1]+1
             else:
-                L[i][j] = max(L[i-1][j], L[i][j-1])
+                levenshtein_matrix[ith_row][jth_col] = max(
+                    levenshtein_matrix[ith_row-1][jth_col],
+                    levenshtein_matrix[ith_row][jth_col-1])
 
     # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
-    return L[m][n]
-# end of function lcs
+    return L[X_length][Y_length]
 
 
-# Driver program to test the above function
-X = "AGGTAB"
-Y = "GXTXAYB"
-print("Length of LCS is ", lcsNaive(X, Y, len(X), len(Y)))
-print("Length of LCS is ", lcsDynamic(X, Y))
+def longestCommonSubsequenceSelection(X: str, Y: str,
+                                      option_selection: int = 2,
+                                      ):
+    '''
+    Select the needed longestCommonSubsequence. 1 for the Naive version, 2 for the
+    dynamic version
 
-# See this code for more of a reference https://www.geeksforgeeks.org/python-program-for-longest-common-subsequence/
+    Parameters:
+    - @param: X - The first string
+    - @param: Y - The second string
+    - @param: option_select - Value can be either 1, or 2
+
+    Returns:
+    - None
+    '''
+
+    print(
+        f'The longestCommonSubsequence method has been selected. Passed in is {option_selection}')
+
+    if option_selection == 1:
+        result = longestCommonSubsequenceNaive(
+            X, Y, len(X), len(Y))
+        print(f'The result to the answer is {result}')
+    elif option_selection == 2:
+        result = longestCommonSubsequenceDynamic(
+            X, Y)
+        print(f"The result to the answer is {result}")

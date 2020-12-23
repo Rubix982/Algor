@@ -31,7 +31,7 @@ def countMemoized(set_of_given_coins: list,
 
             # Count of solutions including set_of_given_coins[j]
             if ith_row-set_of_given_coins[jth_col] >= 0:
-                x = memoized_table[ith_row - set_of_given_coins[jth_col]]
+                x = memoized_table[ith_row - set_of_given_coins[jth_col]][jth_col]
             else:
                 x = 0
 
@@ -50,7 +50,7 @@ def countMemoized(set_of_given_coins: list,
 
 def countBottomUp(set_of_given_coins: list,
                   length_of_set_of_given_coins: int,
-                  number_of_cents: int) -> list:
+                  number_of_cents: int):
     '''
     Performs the countBottomUp operation, for performing the Coin
     Change problem in a bottom up fashion
@@ -85,10 +85,30 @@ def countBottomUp(set_of_given_coins: list,
 
     return memoized_table[number_of_cents]
 
-# Driver program to test above function
-# arr = [1, 2, 3]
-# m = len(arr)
-# n = 4
-# print(count(arr, m, n))
 
-# See here for more details https://www.geeksforgeeks.org/python-program-for-coin-change/
+def countSelection(dataset: list, option_selection: int = 1,
+                   number_of_cents: int = 4):
+    '''
+    Select the needed countSelection. 1 for the Memoized version, 2 for the
+    BottomUp version
+
+    Parameters:
+    - @param: dataset - The dataset ( array ) passed in
+    - @param: option_select - Value can be either 1 or 2
+    - @param: number_of_cents - Number of cents specified, by default, it is 4
+
+    Returns:
+    - None
+    '''
+
+    print(
+        f'The count method has been selected. Passed in is {option_selection}')
+
+    # See here for more details https://www.geeksforgeeks.org/python-program-for-coin-change/
+    if option_selection == 1:
+        result = countMemoized(dataset, len(dataset), number_of_cents)
+        print(f'The result to the answer is {result}')
+
+    if option_selection == 2:
+        result = countBottomUp(dataset, len(dataset), number_of_cents)
+        print(f"The result to the answer is {result}")
