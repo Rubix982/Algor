@@ -11,4 +11,5 @@ urlpatterns = [
     path('data/', views.data, name='data'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
+    path('result/<int:algorithm>/<int:dataset>', views.result, name='result'),
 ]

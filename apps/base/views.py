@@ -35,3 +35,13 @@ def contact(request):
 def about(request):
     ''' About view '''
     return render(request, 'about.html')
+
+def result(request, algorithm, dataset):
+    ''' About result '''
+
+    context = {
+        "algorithm": algorithm,
+        "dataset": dataset,
+    }
+
+    return render(request, 'result.html', context=context)
