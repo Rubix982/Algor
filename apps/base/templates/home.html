@@ -30,9 +30,9 @@
             <div class='container padding-class'>
                 <h1 class='white-color-text'>List of Algorithms</h1>
                 <hr class='hr-styling' />
-                <ol class="gradient-list">
+                <ol id='algorithms' class="gradient-list">
                     {% for list_item in algorithms %}
-                    <li>{{ list_item }}</li>
+                    <li onclick="set_algorithm(this);" class='algorithm-{{ forloop.counter0 }} gradient-item'>{{ list_item }}</li>
                     {% endfor %}
                 </ol>
             </div>
@@ -41,9 +41,11 @@
             <div class='container padding-class'>
                 <h1 class='white-color-text'>Datasets</h1>
                 <hr class="hr-styling" />
-                <ol class="gradient-list">
+                <ol id='datasets' class="gradient-list">
                     {% for list_item in algorithms %}
-                    <li>{{ list_item }} - Dataset</li>
+                    <li onclick="set_dataset(this);" class='dataset-{{ forloop.counter0 }} gradient-item'>
+                        {{ list_item }} - Dataset
+                    </li>
                     {% endfor %}
                 </ol>
             </div>
@@ -51,7 +53,7 @@
     </div>
 </div>
 <!-- <div class="row"> -->
-<button class='button-styling'>
+<button onclick="submit_button()" class='button-styling'>
     <p>Submit</p>
 </button>
 <!-- </div>  -->
