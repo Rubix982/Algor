@@ -39,5 +39,3 @@ def rodCuttingTopDown(input_array: list,
 
     inf_range[input_array_size] = maximum_revenue
     return inf_range[input_array_size]
-
-# See this link for more details https://www.codesdope.com/course/algorithms-rod-cutting/

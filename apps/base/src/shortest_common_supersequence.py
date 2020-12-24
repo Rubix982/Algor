@@ -82,7 +82,6 @@ def superSeqSelection(X: str, Y: str,
     print(
         f'The shortest_common_subsequence method has been selected. Passed in is {option_selection}')
 
-    # See here for more details https://www.geeksforgeeks.org/python-program-for-coin-change/
     if option_selection == 1:
         result = superSeqNaive(X, Y, len(X), len(Y))
         print(f'The result to the answer is {result}')
