@@ -155,15 +155,14 @@ def knapsackSelection(weight_dataset: list, value_dataset: list,
         f'The knapsack method has been selected. Passed in is {option_selection}')
 
     # See this article for more clarity https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+    result = 0
     if option_selection == 1:
         result = knapSackRecursive(
             total_knapsack_capacity, weight_dataset, value_dataset, len(value_dataset))
-        print(f'The result to the answer is {result}')
     elif option_selection == 2:
         result = knapSackDynamic(
             total_knapsack_capacity, weight_dataset, value_dataset, len(value_dataset))
-        print(f"The result to the answer is {result}")
     elif option_selection == 3:
         result = knapsackMemoization(
             total_knapsack_capacity, weight_dataset, value_dataset, len(value_dataset))
-        print(f"The result to the answer is {result}")
+    return result

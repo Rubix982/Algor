@@ -21,15 +21,15 @@ def matrixChainOrderDynamicProgramming(input_array: list, size_of_input: int):
 
     '''
 
-  # Matrix Ai has dimension p[i-1] x p[i] for i = 1..n
-  m = [[0 for x in range(size_of_input)] for x in range(size_of_input)]
+    # Matrix Ai has dimension p[i-1] x p[i] for i = 1..n
+    m = [[0 for x in range(size_of_input)] for x in range(size_of_input)]
 
-   # m[i, j] = Minimum number of scalar multiplications needed
-   # to compute the matrix A[i]A[i + 1]...A[j] = A[i..j] where
-   # dimension of A[i] is p[i-1] x p[i]
+    # m[i, j] = Minimum number of scalar multiplications needed
+    # to compute the matrix A[i]A[i + 1]...A[j] = A[i..j] where
+    # dimension of A[i] is p[i-1] x p[i]
 
-   # cost is zero when multiplying one matrix.
-   for i in range(1, size_of_input):
+    # cost is zero when multiplying one matrix.
+    for i in range(1, size_of_input):
         m[i][i] = 0
 
     # L is chain length.
@@ -48,8 +48,8 @@ def matrixChainOrderDynamicProgramming(input_array: list, size_of_input: int):
     return m[1][size_of_input-1]
 
 
-def matrixChainOrderRecursive(input_array: list, starting_index: int, 
-            ending_index: int) -> int: 
+def matrixChainOrderRecursive(input_array: list, starting_index: int,
+                              ending_index: int) -> int:
     '''
     A naive recursive implementation that
     simply follows the above optimal
@@ -93,8 +93,9 @@ def matrixChainOrderRecursive(input_array: list, starting_index: int,
     # Return minimum count
     return _min
 
+
 def matrixChainOrderSelection(dataset: list,
-    option_selection: int = 1):
+                              option_selection: int = 1):
     '''
     Select the needed countSelection. 1 for the Memoized version, 2 for the
     BottomUp version

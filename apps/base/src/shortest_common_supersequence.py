@@ -65,7 +65,7 @@ def superSeqDynamic(X: str, Y: str,
 
 
 def superSeqSelection(X: str, Y: str,
-                      option_selection: int = 2) -> None:
+                      option_selection: int = 2):
     '''
     Select the needed countSelection. 1 for the Memoized version, 2 for the
     BottomUp version
@@ -82,10 +82,10 @@ def superSeqSelection(X: str, Y: str,
     print(
         f'The shortest_common_subsequence method has been selected. Passed in is {option_selection}')
 
+    result = 0
     if option_selection == 1:
         result = superSeqNaive(X, Y, len(X), len(Y))
-        print(f'The result to the answer is {result}')
 
     if option_selection == 2:
         result = superSeqDynamic(X, Y, len(X), len(Y))
-        print(f"The result to the answer is {result}")
+    return result

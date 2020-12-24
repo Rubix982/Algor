@@ -31,7 +31,8 @@ def countMemoized(set_of_given_coins: list,
 
             # Count of solutions including set_of_given_coins[j]
             if ith_row-set_of_given_coins[jth_col] >= 0:
-                x = memoized_table[ith_row - set_of_given_coins[jth_col]][jth_col]
+                x = memoized_table[ith_row -
+                                   set_of_given_coins[jth_col]][jth_col]
             else:
                 x = 0
 
@@ -86,8 +87,8 @@ def countBottomUp(set_of_given_coins: list,
     return memoized_table[number_of_cents]
 
 
-def countSelection(dataset: list, option_selection: int = 1,
-                   number_of_cents: int = 4):
+def countSelection(dataset: list, number_of_cents: int = 4,
+                   option_selection: int = 1):
     '''
     Select the needed countSelection. 1 for the Memoized version, 2 for the
     BottomUp version
@@ -104,11 +105,14 @@ def countSelection(dataset: list, option_selection: int = 1,
     print(
         f'The count method has been selected. Passed in is {option_selection}')
 
-    # See here for more details https://www.geeksforgeeks.org/python-program-for-coin-change/
+    result = 0
+
     if option_selection == 1:
         result = countMemoized(dataset, len(dataset), number_of_cents)
-        print(f'The result to the answer is {result}')
+        # print(f'The result to the answer is {result}')
 
     if option_selection == 2:
         result = countBottomUp(dataset, len(dataset), number_of_cents)
-        print(f"The result to the answer is {result}")
+        # print(f"The result to the answer is {result}")
+
+    return result

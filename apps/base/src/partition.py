@@ -128,10 +128,10 @@ def findPartitionSelection(dataset: list, option_selection: int = 2):
         f'The partition method has been selected. Passed in is {option_selection}')
 
     # See here for more details https://www.geeksforgeeks.org/python-program-for-coin-change/
+    result = 0
     if option_selection == 1:
         result = findPartionRecursive(dataset, len(dataset))
-        print(f'The result to the answer is {result}')
 
     if option_selection == 2:
         result = findPartitionDynamicProgramming(dataset, len(dataset))
-        print(f"The result to the answer is {result}")
+    return result 
