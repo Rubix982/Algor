@@ -12,9 +12,15 @@
     <div class="col-md result-box">
         <div class="test-case-box-holder">
             <div class='test-case-box'>
-                Hello, World!
             </div>
         </div>
+    </div>
+</div>
+<div>
+    <div>
+        {% for result in listOfResults %}
+        <p>{{ result }}</p>
+        {% endfor %}
     </div>
 </div>
 

@@ -241,7 +241,6 @@ if (window.location.href.includes('/result/')) {
     let testSampleHandler = document.querySelector('.test-case-box');
     let stringFormatter = '';
     let datasetSelected = '';
-    console.log(testSampleHandler.textContent);
 
     if (dataset === '0') {
         datasetSelected = coin_change_making_template;
