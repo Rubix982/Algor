@@ -1,4 +1,4 @@
-const coin_change_making_template = [
+const coin_change_making_template_test_case = [
     ">>> 1. ['25', '84', '83', '71', '59', '82', '70', '67', '41', '14', '53', '80', '99', '84', '81', '47', '92', '90', '83', '82', '21', '100', '100', '69', '26', '27', '97', '32', '89', '13', '0', '71', '88', '50', '42', '15', '16', '64', '28', '19', '91', '59', '0', '15', '88', '23', '52', '2', '99', '17', '52', '40', '60', '84', '18', '7', '0', '65', '27', '62', '7', '32', '66', '45', '28', '19', '21', '66', '12', '37', '71', '100', '92', '18', '83', '15', '5', '89', '75', '36', '41', '40', '68', '30', '32', '0', '54', '90', '68', '38', '0', '81', '58', '94', '57', '35', '49']\n",
     ">>> 2. ['44', '64', '61', '2', '29', '1', '50', '75', '47', '54', '46', '95', '57', '55', '35', '3', '97', '74', '81', '35', '36', '56', '76', '54', '37', '94', '4', '32', '19', '88', '9', '87', '53', '27', '100', '64', '13', '84', '15', '16', '25', '50', '95', '5', '10', '43', '42', '9', '10', '20', '9', '87', '84', '5', '36', '32', '50', '41', '98', '2', '13', '48', '46', '55', '79', '83', '81', '60', '50', '21', '81', '30', '3', '8', '99', '10', '85', '10', '25', '86', '58', '27', '25', '33', '62', '1', '60', '16', '82', '12', '74', '90', '1', '5', '91', '23', '76', '53']\n",
     ">>> 3. ['76', '23', '43', '46', '90', '22', '20', '15', '34', '27', '31', '98', '25', '50', '80', '70', '8', '78', '36', '100', '70', '89', '70', '21', '33', '62', '9', '57', '79', '62', '77', '61', '39', '69', '81', '34', '40', '33', '20', '45', '77', '40', '81', '80', '17', '52', '93', '93', '58', '45', '33', '87', '9', '44', '67', '72', '52', '11', '16', '54', '52', '97', '5', '18', '39', '18', '48', '26', '89', '21', '74', '58', '77', '51', '35', '100', '32', '72', '80', '46', '76', '45', '96', '47', '73', '57', '56', '96', '86', '3', '22', '7', '25', '27', '45', '95', '80', '79', '39', '29']\n",
@@ -119,8 +119,6 @@ const word_break_template = [
     ">>> 10. ['rng', 'aid', 'mmd', 'jzam', 'sghi', 'hukk', 'uuwe', 'jdzg', 'uxdlaw', 'tllk', 'gjmb', 'uujxd', 'opjoubo', 'mn', 'lsnpi', 'xqg', 'hts', 'puuj', 'pdy', 'vkas', 'rkfs', 'lhlz', 'ryo', 'ejx', 'gg', 'ffx', 'iqfj', 'mdxs', 'spcb', 'gnsaw', 'tatt', 'pev', 'ozsl', 'jev', 'r', 'hgjk', 'ohj', 'dlfec', 'hzaw', 'wm', 'opfw', 'aktf', 'if', 'bnyk', 'p', 'fc', 'brl']",
 ];
 
-let allDatasets = (document.querySelectorAll(`ol#datasets.gradient-list>li`))
-let allAlgorithms = (document.querySelectorAll(`ol#algorithms.gradient-list>li`))
 let algorithm = '';
 let dataset = '';
 
@@ -134,8 +132,14 @@ function set_algorithm(event) {
         }
     }
 
+    let allAlgorithms = (document.querySelectorAll(`ol#algorithms.gradient-list>li`))
+
     for (let i = 0; i < allAlgorithms.length; ++i) {
-        allAlgorithms[i].classList.remove('option-selected')
+        for (let j = 0; j < allAlgorithms[i].classList.length; ++j) {
+            if (allAlgorithms[i].classList[j] === 'option-selected') {
+                allAlgorithms[i].classList.remove('option-selected')
+            }
+         }
     }
 
     event.classList.add('option-selected')
@@ -152,8 +156,14 @@ function set_dataset(event) {
         }
     }
 
+    let allDatasets = (document.querySelectorAll(`ol#datasets.gradient-list>li`))
+
     for (let i = 0; i < allDatasets.length; ++i) {
-        allDatasets[i].classList.remove('option-selected')
+        for (let j = 0; j < allDatasets[i].classList.length; ++j) {
+            if (allDatasets[i].classList[j] === 'option-selected') {
+                allDatasets[i].classList.remove('option-selected')
+            }
+        }
     }
 
     event.classList.add('option-selected')
@@ -198,76 +208,76 @@ be chosen to go with the algorithm you have chosen`)
     }
 }
 
-if (window.location.href.includes('/result/')) {
+// if (window.location.href.includes('/result/')) {
 
-    // For the image, .render-image-for-code
-    let hrefList = window.location.href.split('/')
-    let lengthOfHref = hrefList.length
-    let dataset = hrefList[lengthOfHref - 1];
-    let algorithm = hrefList[lengthOfHref - 2];
-    let imageHandler = document.querySelector('.render-image-for-code').src;
-    let findIndexFor = 'coin_change_making.png';
-    let indexForSubStr = imageHandler.indexOf(findIndexFor);
-    let extractURI = imageHandler.substr(0, indexForSubStr - 1);
-    let newResource = '';
+//     // For the image, .render-image-for-code
+//     let hrefList = window.location.href.split('/')
+//     let lengthOfHref = hrefList.length
+//     let dataset = hrefList[lengthOfHref - 1];
+//     let algorithm = hrefList[lengthOfHref - 2];
+//     let imageHandler = document.querySelector('.render-image-for-code').src;
+//     let findIndexFor = 'coin_change_making.png';
+//     let indexForSubStr = imageHandler.indexOf(findIndexFor);
+//     let extractURI = imageHandler.substr(0, indexForSubStr - 1);
+//     let newResource = '';
 
-    if (algorithm === '8') {
-        newResource = 'coin_change_making.png';
-    } else if (algorithm === '5') {
-        newResource = 'knapsack_0_1.png';
-    } else if (algorithm === '2') {
-        newResource = 'levensthein_distance.png';
-    } else if (algorithm === '3') {
-        newResource = 'lis.png';
-    } else if (algorithm === '0') {
-        newResource = 'longest_common_subsequence.png';
-    } else if (algorithm === '4') {
-        newResource = 'matrix_chain_multiplication.png';
-    } else if (algorithm === '6') {
-        newResource = 'partition.png';
-    } else if (algorithm === '7') {
-        newResource = 'rod_cutting.png';
-    } else if (algorithm === '1') {
-        newResource = 'shortest_common_supersequence.png';
-    } else if (algorithm === '9') {
-        newResource = 'word_break.png';
-    }
+//     if (algorithm === '8') {
+//         newResource = 'coin_change_making.png';
+//     } else if (algorithm === '5') {
+//         newResource = 'knapsack_0_1.png';
+//     } else if (algorithm === '2') {
+//         newResource = 'levensthein_distance.png';
+//     } else if (algorithm === '3') {
+//         newResource = 'lis.png';
+//     } else if (algorithm === '0') {
+//         newResource = 'longest_common_subsequence.png';
+//     } else if (algorithm === '4') {
+//         newResource = 'matrix_chain_multiplication.png';
+//     } else if (algorithm === '6') {
+//         newResource = 'partition.png';
+//     } else if (algorithm === '7') {
+//         newResource = 'rod_cutting.png';
+//     } else if (algorithm === '1') {
+//         newResource = 'shortest_common_supersequence.png';
+//     } else if (algorithm === '9') {
+//         newResource = 'word_break.png';
+//     }
 
-    extractURI = `${extractURI}/${newResource}`;
+//     extractURI = `${extractURI}/${newResource}`;
 
-    document.querySelector('.render-image-for-code').src = extractURI;
+//     document.querySelector('.render-image-for-code').src = extractURI;
 
-    // For the test cases, .test-case-box
-    let testSampleHandler = document.querySelector('.test-case-box');
-    let stringFormatter = '';
-    let datasetSelected = '';
+//     // For the test cases, .test-case-box
+//     let testSampleHandler = document.querySelector('.test-case-box');
+//     let stringFormatter = '';
+//     let datasetSelected = '';
 
-    if (dataset === '8') {
-        datasetSelected = coin_change_making_template;
-    } else if (dataset === '5') {
-        datasetSelected = knapsack_0_1_template;
-    } else if (dataset === '2') {
-        datasetSelected = levensthein_distance_template;
-    } else if (dataset === '3') {
-        datasetSelected = longest_increasing_subsequence_template;
-    } else if (dataset === '0') {
-        datasetSelected = longest_common_subsequence_template;
-    } else if (dataset === '4') {
-        datasetSelected = matrix_chain_multiplication_template;
-    } else if (dataset === '6') {
-        datasetSelected = partition_template;
-    } else if (dataset === '7') {
-        datasetSelected = rod_cutting_template;
-    } else if (dataset === '1') {
-        datasetSelected = shortest_common_supersequence_template;
-    } else if (dataset === '9') {
-        datasetSelected = word_break_template;
-    }
+//     if (dataset === '8') {
+//         datasetSelected = coin_change_making_template_test_case;
+//     } else if (dataset === '5') {
+//         datasetSelected = knapsack_0_1_template;
+//     } else if (dataset === '2') {
+//         datasetSelected = levensthein_distance_template;
+//     } else if (dataset === '3') {
+//         datasetSelected = longest_increasing_subsequence_template;
+//     } else if (dataset === '0') {
+//         datasetSelected = longest_common_subsequence_template;
+//     } else if (dataset === '4') {
+//         datasetSelected = matrix_chain_multiplication_template;
+//     } else if (dataset === '6') {
+//         datasetSelected = partition_template;
+//     } else if (dataset === '7') {
+//         datasetSelected = rod_cutting_template;
+//     } else if (dataset === '1') {
+//         datasetSelected = shortest_common_supersequence_template;
+//     } else if (dataset === '9') {
+//         datasetSelected = word_break_template;
+//     }
 
-    for (let i = 0; i < datasetSelected.length; ++i) {
-        stringFormatter = "<p>" + stringFormatter + datasetSelected[i] + "</p>";
-    }
+//     for (let i = 0; i < datasetSelected.length; ++i) {
+//         stringFormatter = "<p>" + stringFormatter + datasetSelected[i] + "</p>";
+//     }
 
-    testSampleHandler.innerHTML = stringFormatter;
+//     testSampleHandler.innerHTML = stringFormatter;
 
-}
+// }
