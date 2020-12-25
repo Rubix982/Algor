@@ -165,7 +165,7 @@ function submit_button() {
 
     if (algorithm !== '' && dataset !== '') {
         if (algorithm === '0' || algorithm === '1' || algorithm === '2') {
-            if (dataset === '0' || dataset === '1' || dataset === '3') {
+            if (dataset === '0' || dataset === '1' || dataset === '2') {
                 window.location.replace(`${window.location.href}result/${algorithm}/${dataset}`)
             } else {
                 alert(`Invalid dataset chosen. You can choose either 
@@ -211,23 +211,23 @@ if (window.location.href.includes('/result/')) {
     let extractURI = imageHandler.substr(0, indexForSubStr - 1);
     let newResource = '';
 
-    if (algorithm === '0') {
+    if (algorithm === '8') {
         newResource = 'coin_change_making.png';
-    } else if (algorithm === '1') {
+    } else if (algorithm === '5') {
         newResource = 'knapsack_0_1.png';
     } else if (algorithm === '2') {
         newResource = 'levensthein_distance.png';
     } else if (algorithm === '3') {
         newResource = 'lis.png';
-    } else if (algorithm === '4') {
+    } else if (algorithm === '0') {
         newResource = 'longest_common_subsequence.png';
-    } else if (algorithm === '5') {
+    } else if (algorithm === '4') {
         newResource = 'matrix_chain_multiplication.png';
     } else if (algorithm === '6') {
         newResource = 'partition.png';
     } else if (algorithm === '7') {
         newResource = 'rod_cutting.png';
-    } else if (algorithm === '8') {
+    } else if (algorithm === '1') {
         newResource = 'shortest_common_supersequence.png';
     } else if (algorithm === '9') {
         newResource = 'word_break.png';
@@ -242,23 +242,23 @@ if (window.location.href.includes('/result/')) {
     let stringFormatter = '';
     let datasetSelected = '';
 
-    if (dataset === '0') {
+    if (dataset === '8') {
         datasetSelected = coin_change_making_template;
-    } else if (dataset === '1') {
+    } else if (dataset === '5') {
         datasetSelected = knapsack_0_1_template;
     } else if (dataset === '2') {
         datasetSelected = levensthein_distance_template;
     } else if (dataset === '3') {
         datasetSelected = longest_increasing_subsequence_template;
-    } else if (dataset === '4') {
+    } else if (dataset === '0') {
         datasetSelected = longest_common_subsequence_template;
-    } else if (dataset === '5') {
+    } else if (dataset === '4') {
         datasetSelected = matrix_chain_multiplication_template;
     } else if (dataset === '6') {
         datasetSelected = partition_template;
     } else if (dataset === '7') {
         datasetSelected = rod_cutting_template;
-    } else if (dataset === '8') {
+    } else if (dataset === '1') {
         datasetSelected = shortest_common_supersequence_template;
     } else if (dataset === '9') {
         datasetSelected = word_break_template;
