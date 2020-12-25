@@ -79,9 +79,6 @@ def superSeqSelection(X: str, Y: str,
     - None
     '''
 
-    print(
-        f'The shortest_common_subsequence method has been selected. Passed in is {option_selection}')
-
     result = 0
     if option_selection == 1:
         result = superSeqNaive(X, Y, len(X), len(Y))

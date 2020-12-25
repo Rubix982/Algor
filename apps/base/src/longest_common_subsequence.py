@@ -78,14 +78,12 @@ def longestCommonSubsequenceSelection(X: str, Y: str,
     - None
     '''
 
-    print(
-        f'The longestCommonSubsequence method has been selected. Passed in is {option_selection}')
-
+    result = 0
     if option_selection == 1:
         result = longestCommonSubsequenceNaive(
             X, Y, len(X), len(Y))
-        print(f'The result to the answer is {result}')
     elif option_selection == 2:
         result = longestCommonSubsequenceDynamic(
             X, Y)
-        print(f"The result to the answer is {result}")
+
+    return result

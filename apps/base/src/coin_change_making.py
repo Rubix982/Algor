@@ -102,17 +102,12 @@ def countSelection(dataset: list, number_of_cents: int = 4,
     - None
     '''
 
-    print(
-        f'The count method has been selected. Passed in is {option_selection}')
-
     result = 0
 
     if option_selection == 1:
         result = countMemoized(dataset, len(dataset), number_of_cents)
-        # print(f'The result to the answer is {result}')
 
     if option_selection == 2:
         result = countBottomUp(dataset, len(dataset), number_of_cents)
-        # print(f"The result to the answer is {result}")
 
     return result

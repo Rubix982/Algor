@@ -151,9 +151,6 @@ def knapsackSelection(weight_dataset: list, value_dataset: list,
     - None
     '''
 
-    print(
-        f'The knapsack method has been selected. Passed in is {option_selection}')
-
     # See this article for more clarity https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
     result = 0
     if option_selection == 1:

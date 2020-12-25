@@ -1,4 +1,4 @@
-def wordBreak(language_dictionary: list, input_string: str, out=""):
+def wordBreak(language_dictionary: list, input_string: str, final_output, out=""):
     '''
     Function to segment given into a space-separated
     sequence of one or more dictionary words
@@ -10,7 +10,7 @@ def wordBreak(language_dictionary: list, input_string: str, out=""):
     # if we have reached the end of the String,
     # print the output String
     if not input_string:
-        print(out)
+        final_output.append(out)
         return
 
     for i in range(1, len(input_string) + 1):
@@ -20,4 +20,4 @@ def wordBreak(language_dictionary: list, input_string: str, out=""):
         # if the prefix is present in the dictionary, add prefix to the
         # output and recur for remaining String
         if prefix in language_dictionary:
-            wordBreak(language_dictionary, input_string[i:], out + " " + prefix)
+            wordBreak(language_dictionary, input_string[i:], final_output, out + " " + prefix)

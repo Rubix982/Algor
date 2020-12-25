@@ -112,11 +112,9 @@ def matrixChainOrderSelection(dataset: list,
     print(
         f'The count method has been selected. Passed in is {option_selection}')
 
-    # See here for more of a reference https://www.geeksforgeeks.org/python-program-for-matrix-chain-multiplication-dp-8/
+    result = 0
     if option_selection == 1:
         result = matrixChainOrderDynamicProgramming(dataset, len(dataset))
-        print(f'The result to the answer is {result}')
-
     if option_selection == 2:
         result = matrixChainOrderRecursive(dataset, 1, len(dataset) - 1)
-        print(f"The result to the answer is {result}")
+    return result

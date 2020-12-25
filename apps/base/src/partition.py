@@ -124,9 +124,6 @@ def findPartitionSelection(dataset: list, option_selection: int = 2):
     - None
     '''
 
-    print(
-        f'The partition method has been selected. Passed in is {option_selection}')
-
     # See here for more details https://www.geeksforgeeks.org/python-program-for-coin-change/
     result = 0
     if option_selection == 1:
