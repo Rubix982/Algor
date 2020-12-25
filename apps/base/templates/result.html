@@ -18,8 +18,8 @@
 </div>
 <div>
     <div>
-        {% for result in listOfResults %}
-        <p>{{ result }}</p>
+        {% for result, time in listOfResults %}
+        <p>{{ result }} - {{ time }}s</p>
         {% endfor %}
     </div>
 </div>

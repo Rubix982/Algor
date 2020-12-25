@@ -8,7 +8,7 @@
 
 .result-box {
     background: #fafafa;
-    height: 140vh;
+    height: 150vh;
 }
 
 .result-box img {
@@ -85,6 +85,7 @@ ol.gradient-list {
     padding: 1rem 1rem 1rem 3rem;
     position: relative;
     cursor: pointer;
+    transition: width 0.5s, background 0.5s, color 0.5s, border-radius 0.5s;
 }
 
 ol.gradient-list>li::before, ol.gradient-list>li::after {
@@ -187,7 +188,7 @@ ol.gradient-list>li+li {
     color: white;
     box-shadow: 7px 7px 20px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    transition: width 0.75s, background 0.75s, color 0.75s;
+    transition: width 0.5s, background 0.5s, color 0.5s, border-radius 0.5s;
 }
 
 .test-case-box {

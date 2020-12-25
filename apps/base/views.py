@@ -1,19 +1,19 @@
 """Views for the base app"""
 
+from apps.base.src.aux import handleAlgorithmWithDataset
 from django.shortcuts import render
 
 import sys
 import os
-sys.path.append(f"{os.path.abspath(os.getcwd())}/source/")  
+sys.path.append(f"{os.path.abspath(os.getcwd())}/source/")
 
 ''' Algorithm '''
 
-from apps.base.src.aux import handleAlgorithmWithDataset
 
 def home(request):
 
-    list_of_algorithms = ['Coin Change Making', 'Knapsack 01', 'Levenshtein Distance', 'Longest Increasing Subsequence', 'Longest Common Subsequence',
-                          'Matrix Chain Multiplication', 'Partition Problem - Dynamic', 'Rod Cutting Problem', 'Shortest Common Super Sequence', 'Work Break Problem']
+    list_of_algorithms = ['Longest Common Subsequence', 'Shortest Common Supersequence', 'Levenshtein Distance', 'Longest Increasing Subsequence', 'Matrix Chain Multiplication',
+                          'Knapsack 01', 'Partition Problem', 'Rod Cutting Problem', 'Coin Change Making', 'Work Break Problem']
 
     context = {}
     context['algorithms'] = list_of_algorithms
@@ -45,8 +45,9 @@ def about(request):
 def result(request, algorithm, dataset):
     ''' About result '''
 
-    result_list = handleAlgorithmWithDataset(algorithm, dataset)
-    print(f"Result is {result_list}, algorithm is {algorithm}, dataset is {dataset}")
+    result_list, total_time_taken = handleAlgorithmWithDataset(algorithm, dataset)
+
+    combined_lists = zip(result_list, total_time_taken)
 
     if result_list == []:
         result_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -54,7 +55,7 @@ def result(request, algorithm, dataset):
     context = {
         "algorithm": algorithm,
         "dataset": dataset,
-        "listOfResults": result_list,
+        "listOfResults": combined_lists,
     }
 
     return render(request, 'result.html', context=context)
