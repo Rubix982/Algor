@@ -5,10 +5,14 @@
 
 <h2> This is the report page! </h2>
 
-<p> The following is the document generated for the project. It may or may not be the finalized report. </p>
+<p> The following is the document generated for the project. The below is the finalized report.</p>
+<p>Google Drive does not allow me to embed into an iframe a PDF, so you can
+    just check out the report itself <a
+        href='https://drive.google.com/file/d/14y3NUewBvYTnP6MtsBR284uNGMtwEdih/view?usp=sharing'>here</a>.
+</p>
 
 {% load static %}
-<div class='d-flex p-2'>
-    <iframe src="{% static 'pdf/report.pdf' %}" style="width:100vw; height:100vh;" frameborder="0"></iframe>
-</div>
+<!-- <div class='d-flex p-2'>
+    <iframe src="https://drive.google.com/file/d/14y3NUewBvYTnP6MtsBR284uNGMtwEdih/view?usp=sharing" style="width:100vw; height:100vh;" frameborder="0"></iframe>
+</div> -->
 {% endblock %}
