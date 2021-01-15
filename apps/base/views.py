@@ -52,6 +52,9 @@ def result(request, algorithm, dataset):
     if result_list == []:
         result_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
+    if algorithm == 4 and dataset == 4:
+        print('Hello, World!')
+
     context = {
         "algorithm": algorithm,
         "dataset": dataset,

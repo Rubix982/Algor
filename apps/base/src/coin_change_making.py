@@ -46,7 +46,8 @@ def countMemoized(set_of_given_coins: list,
             memoized_table[ith_row][jth_col] = x + y
 
     # Return the last obtained result
-    return memoized_table[number_of_cents][length_of_set_of_given_coins-1]
+    print(f'{len(memoized_table)}, {len(memoized_table[0])} {number_of_cents}, {length_of_set_of_given_coins}')
+    return memoized_table[number_of_cents-1][length_of_set_of_given_coins-1]
 
 
 def countBottomUp(set_of_given_coins: list,
@@ -87,8 +88,8 @@ def countBottomUp(set_of_given_coins: list,
     return memoized_table[number_of_cents]
 
 
-def countSelection(dataset: list, number_of_cents: int = 4,
-                   option_selection: int = 1):
+def countSelection(dataset: list, number_of_cents: int = 307,
+                   option_selection: int = 2):
     '''
     Select the needed countSelection. 1 for the Memoized version, 2 for the
     BottomUp version

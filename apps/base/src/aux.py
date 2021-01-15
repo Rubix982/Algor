@@ -307,7 +307,7 @@ def handleAlgorithmWithDataset(algorithm: int,
 
         for row in chosen_dataset:
             start = time.time()
-            result_list.append(longestCommonSubsequenceSelection(row[0], row[1]))
+            result_list.append(longestIncreasingSubsequence(row, len(row)))
             end = time.time()
             total_time_taken.append(end -start)
 
@@ -316,7 +316,7 @@ def handleAlgorithmWithDataset(algorithm: int,
 
         for row in chosen_dataset:
             start = time.time()
-            result_list.append(longestIncreasingSubsequence(row, len(row)))
+            result_list.append(longestCommonSubsequenceSelection(row[0], row[1]))
             end = time.time()
             total_time_taken.append(end - start)
 

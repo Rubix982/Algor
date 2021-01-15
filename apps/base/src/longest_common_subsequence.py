@@ -59,7 +59,7 @@ def longestCommonSubsequenceDynamic(X, Y):
                     levenshtein_matrix[ith_row][jth_col-1])
 
     # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
-    return L[X_length][Y_length]
+    return levenshtein_matrix[X_length][Y_length]
 
 
 def longestCommonSubsequenceSelection(X: str, Y: str,
