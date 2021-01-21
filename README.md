@@ -22,8 +22,11 @@
     - [config](#config)
     - [cs302AlgorithmsProject](#cs302algorithmsproject)
     - [Root Files](#root-files)
+- [Building The Application](#building-the-application)
+    - [Quickstart](#quickstart)
+    - [Settings](#settings)
 - [Datasets Generation](#datasets-generation)
-- [Collectstatic And Migrations](#collectstatic-and-migrations)
+- [Features](#features)
 - [OS Details Which Was Used](#os-details-which-was-used)
 
 ## Description
@@ -40,7 +43,7 @@ As required for the project requirements, a GUI application with a 'very nice UI
 
 ### apps
 
-Django splits the responsibility from the main MVC view into smaller 'components' and applications that each handle their responsibilities quite easily. 
+Django splits the responsibility from the main MVC view into smaller 'components' and applications that each handle their responsibilities quite easily.
 
 Inside of `apps` is `base`, where the source code for the,
 
@@ -56,7 +59,7 @@ You can find all the algorithms within `apps/base/src/`, except in `apps/base/sr
 
 `apps/base/src/aux.py` has the datasets embedded within its source code, which it takes, and then sends it over to the respective targeted algorithms to be rendered for the results.
 
-The `apps/base/static/base` contains the `css/` and `js/` folders, which have the source files for manipulating the CSS and Javascript for the components that exist within `apps/base/templates`. 
+The `apps/base/static/base` contains the `css/` and `js/` folders, which have the source files for manipulating the CSS and Javascript for the components that exist within `apps/base/templates`.
 
 The responsibility to take care of the views has been shifted from the main source repository in `cs302AlgorithmsProject` to `apps/base/templates` to facilitate with ease what HTML files to render.
 
@@ -80,7 +83,7 @@ The `Settings` directory contains the files that tell Django what the variables 
 
 The `Static Files` most notably uses `base.html` that is extended to the `templates` within `apps/base/templates/home.html` that control the extension of the format and details the footer, the header, the imports for the CS, JS, and `CDN` files. The other `*.html` files here.
 
-The `urls.py` and `wsgi.py` are self-explanatory. 
+The `urls.py` and `wsgi.py` are self-explanatory.
 
 ### Root Files
 
@@ -109,6 +112,59 @@ To deal with,
 
 Please take a look at `readme.me`.
 
+### Quickstart
+
+Make sure you have [pipenv installed](https://docs.pipenv.org/install.html). Then install the requirments in your `virtualenv`,
+
+```bash
+pipenv run pip3 install -r requirements.txt
+```
+
+If that doesn't work, just run,
+
+```bash
+pipenv install --dev
+```
+
+If you need a database, edit the settings and create one with
+
+```bash
+pipenv run python3 manage.py migrate
+```
+
+Once everything it's setup you can run the development server: [http://localhost:8000/](http://localhost:8000/)
+
+```bash
+pipenv run python manage.py runserver
+```
+
+### Settings
+
+Settings are divided by environments: production.py, development.py and testing.py. By default it uses development.py, if you want to change the environment set a environment variable:
+
+```bash
+export DJANGO_SETTINGS_MODULE="cs302AlgorithmsProject.settings.production"
+```
+
+or you can use the `settings` param with runserver:
+
+```bash
+pipenv run python3 manage.py runserver --settings=cs302AlgorithmsProject.settings.production
+```
+
+If you need to add some settings that are specific for your machine, rename the file `local_example.py` to `local_settings.py`. This file it's in .gitignore so the changes won't be tracked.
+
+Or if you just want to use the `virtualenv` method,
+
+```bash
+virtualenv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+make dev
+```
+
+And you're done!
+
 ## Datasets Generation
 
 The code that was used to generate the dataset is uploaded here, https://gist.github.com/Rubix982/c95be3be0a5de615e37fdcd7c474be44
@@ -117,6 +173,13 @@ This was a quick .py file for generating the data for us.
 Works for `(d)`, `(e)`, `(f)`, `(g)`, `(h)`, `(i)`, `(j)`.
 
 We used this https://www.careerbless.com/calculators/word/list.php to generate the string permutations for the datasets needed in `(a)`, `(b)`, `(c)`.
+
+## Features
+
+- [Django compressor](http://django-compressor.readthedocs.org/en/latest/) to compress JS and CSS and compile LESS/SASS files.
+- [Pipenv](https://docs.pipenv.org) To manage dependences and virtualenvs.
+- [Django debug toolbar](http://django-debug-toolbar.readthedocs.org/) enabled for superusers.
+- [Argon2](https://docs.djangoproject.com/en/2.0/topics/auth/passwords/#using-argon2-with-django) to hash the passwords
 
 ## OS Details Which Was Used
 
