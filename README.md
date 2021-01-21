@@ -1,5 +1,7 @@
 # CS302 - Algorithms Project
 
+<p align="left">
+ <a href="#">
 <img alt="Python" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/>
 <img alt="Django" src="https://img.shields.io/badge/Django-Django?style=for-the-badge&logo=django&color=092E20"/>
 <img alt='Heroku' src="https://img.shields.io/badge/Heroku-Heroku?style=for-the-badge&logo=heroku&color=430098"/>
@@ -8,6 +10,8 @@
 <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
 <img alt="HTML" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
 <img alt="CSS" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
+ </a>
+</p>
 
 ## Table Of Contents
 
