@@ -1,4 +1,4 @@
-# CS302 - Algorithms Project
+# Algor
 
 <p align="left">
  <a href="#">
