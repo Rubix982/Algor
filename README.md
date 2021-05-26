@@ -31,13 +31,13 @@
 
 ## Description
 
-This is a semester project - The perfect Dynamic Programming Algorithms Project. This is a submission for the CS 302 course offered @ FAST NUCES, under Sir Zeeshan Khan and Sir Waqas Sheikh. It's meant to serve as a very simply Django application that helps you select an algorithm from a list of Dynamic Algorithms, and a datasets for viable for at least of the algorithms given.
+An interactive Django and Heroku-based application that lets you select 10 classic dynamic and iterative algorithms, their datasets, then compute the results and display them. It's meant to serve as a very simply Django application that helps you select an algorithm from a list of Dynamic Algorithms, and a datasets for viable for at least of the algorithms given.
 
 The application then takes the two components, uses the dataset in the algorithm, and displayts the output on a new page. The report for the project has been attached as well.
 
 ## Intent And Idea
 
-As required for the project requirements, a GUI application with a 'very nice UI' was needed, which meant to help or serve as a way to ease and see the results obtained from the GUI application.
+A simply UI to explore aglorithms and their results.
 
 ## File Structure
 
